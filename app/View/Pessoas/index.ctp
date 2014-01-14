@@ -33,9 +33,9 @@
 		<td><?php echo h($pessoa['Pessoa']['email']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['celular']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['obs']); ?>&nbsp;</td>
-		<td><?php echo h($pessoa['Pessoa']['nascimento']); ?>&nbsp;</td>
-		<td><?php echo h($pessoa['Pessoa']['created']); ?>&nbsp;</td>
-		<td><?php echo h($pessoa['Pessoa']['modified']); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y", strtotime($pessoa['Pessoa']['nascimento'])); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['created'])); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['modified'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $pessoa['Pessoa']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $pessoa['Pessoa']['id'])); ?>

@@ -63,9 +63,9 @@
 			<td><?php echo $pessoa['email']; ?></td>
 			<td><?php echo $pessoa['celular']; ?></td>
 			<td><?php echo $pessoa['obs']; ?></td>
-			<td><?php echo $pessoa['nascimento']; ?></td>
-			<td><?php echo $pessoa['created']; ?></td>
-			<td><?php echo $pessoa['modified']; ?></td>
+			<td><?php echo date("d/m/y", strtotime($pessoa['nascimento'])); ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['created'])); ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['modified'])); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'pessoas', 'action' => 'view', $pessoa['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'pessoas', 'action' => 'edit', $pessoa['id'])); ?>

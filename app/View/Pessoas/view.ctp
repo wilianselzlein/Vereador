@@ -58,17 +58,17 @@
 		</dd>
 		<dt><?php echo __('Nascimento'); ?></dt>
 		<dd>
-			<?php echo h($pessoa['Pessoa']['nascimento']); ?>
+			<?php echo date("d/m/y", strtotime($pessoa['Pessoa']['nascimento'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Cadastrado'); ?></dt>
 		<dd>
-			<?php echo h($pessoa['Pessoa']['created']); ?>
+			<?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['created'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Alterado'); ?></dt>
 		<dd>
-			<?php echo h($pessoa['Pessoa']['modified']); ?>
+			<?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['modified'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -107,14 +107,14 @@
 		foreach ($pessoa['Pendencia'] as $pendencia): ?>
 		<tr>
 			<td><?php echo $pendencia['id']; ?></td>
-			<td><?php echo $pendencia['data']; ?></td>
+			<td><?php echo date("d/m/y", strtotime($pendencia['data'])); ?></td>
 			<td><?php echo $this->Html->link($user[$pendencia['user_id']], array('controller' => 'users', 'action' => 'view', $pendencia['user_id'])); ?>
 			<td><?php echo $this->Html->link($situacao[$pendencia['situacao_id']], array('controller' => 'situacaos', 'action' => 'view', $pendencia['situacao_id'])); ?>
 			<td><?php echo $this->Html->link($grupo[$pendencia['grupo_id']], array('controller' => 'grupos', 'action' => 'view', $pendencia['grupo_id'])); ?>
 			<td><?php echo $pendencia['titulo']; ?></td>
 			<td><?php echo $pendencia['historico']; ?></td>
-			<td><?php echo $pendencia['modified']; ?></td>
-			<td><?php echo $pendencia['created']; ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['modified'])); ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['created'])); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'pendencias', 'action' => 'view', $pendencia['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'pendencias', 'action' => 'edit', $pendencia['id'])); ?>

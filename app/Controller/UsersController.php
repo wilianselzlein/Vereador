@@ -12,11 +12,32 @@ class UsersController extends AppController {
  *
  * @return void
  */
+	public function beforeFilter() {
+	        parent::beforeFilter();
+	        $this->Auth->allow('add', 'logout');
+	}    
+/**
+ * index method
+ *
+ * @return void
+ */
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
+	public function login() {
+		if ($this->Auth->login()) {
+			    $this->redirect($this->Auth->redirect());
+		} else {
+		        $this->Session->setFlash(__('Usuario e senha invalido!'));
+		}
+	}
+
+	public function logout() {
+	       $this->redirect($this->Auth->logout());
+	}
+	
 /**
  * view method
  *

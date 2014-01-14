@@ -1,7 +1,7 @@
 <div class="pendencias form">
-<?php echo $this->Form->create('Pendência'); ?>
+<?php echo $this->Form->create('Pendencia'); ?>
 	<fieldset>
-		<legend><?php echo __('Adicionar Pendencia'); ?></legend>
+		<legend><?php echo __('Adicionar Pendência'); ?></legend>
 	<?php
 		echo $this->Form->input('data', array('label' => 'Data', 'dateFormat' => 'DMY', 'minYear' => date('Y') - 100, 'maxYear' => date('Y')));
 		echo $this->Form->input('user_id', array('label' => 'Usuário'));

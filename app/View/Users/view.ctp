@@ -23,12 +23,12 @@
 		</dd>-->
 		<dt><?php echo __('Cadastrado'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['created']); ?>
+			<?php echo date("d/m/y H:i:s", strtotime($user['User']['created'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Alterado'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['modified']); ?>
+			<?php echo date("d/m/y H:i:s", strtotime($user['User']['modified'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -65,14 +65,14 @@
 		foreach ($user['Pendencia'] as $pendencia): ?>
 		<tr>
 			<td><?php echo $pendencia['id']; ?></td>
-			<td><?php echo $pendencia['data']; ?></td>
+			<td><?php echo date("d/m/y", strtotime($pendencia['data'])); ?></td>
 			<td><?php echo $this->Html->link($grupo[$pendencia['grupo_id']], array('controller' => 'grupos', 'action' => 'view', $pendencia['grupo_id'])); ?>
 			<td><?php echo $this->Html->link($pessoa[$pendencia['pessoa_id']], array('controller' => 'pessoas', 'action' => 'view', $pendencia['pessoa_id'])); ?>
 			<td><?php echo $this->Html->link($situacao[$pendencia['situacao_id']], array('controller' => 'situacaos', 'action' => 'view', $pendencia['situacao_id'])); ?>
 			<td><?php echo $pendencia['titulo']; ?></td>
 			<td><?php echo $pendencia['historico']; ?></td>
-			<td><?php echo $pendencia['created']; ?></td>
-			<td><?php echo $pendencia['modified']; ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['created'])); ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['modified'])); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'pendencias', 'action' => 'view', $pendencia['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'pendencias', 'action' => 'edit', $pendencia['id'])); ?>
@@ -84,7 +84,7 @@
 <?php endif; ?>
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('Novo Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>

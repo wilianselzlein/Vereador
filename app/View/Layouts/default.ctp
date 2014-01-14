@@ -29,9 +29,7 @@ $cakeDescription = __d('cake_dev', 'Sistema gerenciador de Pendências');
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
 		echo $this->Html->css('cake.generic');
-
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -40,22 +38,21 @@ $cakeDescription = __d('cake_dev', 'Sistema gerenciador de Pendências');
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://www.domper.com.br'); ?></h1>
+			<h1><?php echo $this->Html->link($cakeDescription, '/'); ?></h1>
 		</div>
 		<div id="content">
-
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php /*echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.domper.com.br/',
-					array('target' => '_blank', 'escape' => false)
-				);*/
+			<?php echo $this->Html->link(
+					$this->Html->image('log.out.png', array('alt' => 'Sair do Sistema', 'border' => '0')),
+					array('controller' => 'Users', 'action'=>'logout'),
+					array('escape' => false)
+				);
 			?>
 		</div>
+	    
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>

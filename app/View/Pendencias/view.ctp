@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('Data'); ?></dt>
 		<dd>
-			<?php echo h($pendencia['Pendencia']['data']); ?>
+			<?php echo date("d/m/y", strtotime($pendencia['Pendencia']['data'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Usuário'); ?></dt>
@@ -43,12 +43,12 @@
 		</dd>
 		<dt><?php echo __('Alterado'); ?></dt>
 		<dd>
-			<?php echo h($pendencia['Pendencia']['modified']); ?>
+			<?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['modified'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Cadastrado'); ?></dt>
 		<dd>
-			<?php echo h($pendencia['Pendencia']['created']); ?>
+			<?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['created'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

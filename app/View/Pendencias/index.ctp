@@ -17,7 +17,7 @@
 	<?php foreach ($pendencias as $pendencia): ?>
 	<tr>
 		<td><?php echo h($pendencia['Pendencia']['id']); ?>&nbsp;</td>
-		<td><?php echo h($pendencia['Pendencia']['data']); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y", strtotime($pendencia['Pendencia']['data'])); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($pendencia['User']['username'], array('controller' => 'users', 'action' => 'view', $pendencia['User']['id'])); ?>
 		</td>
@@ -32,8 +32,8 @@
 		</td>
 		<td><?php echo h($pendencia['Pendencia']['titulo']); ?>&nbsp;</td>
 		<td><?php echo h($pendencia['Pendencia']['historico']); ?>&nbsp;</td>
-		<td><?php echo h($pendencia['Pendencia']['created']); ?>&nbsp;</td>
-		<td><?php echo h($pendencia['Pendencia']['modified']); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['created'])); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['modified'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $pendencia['Pendencia']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $pendencia['Pendencia']['id'])); ?>
