@@ -30,6 +30,7 @@ class CidadesController extends AppController {
 		}
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+		$this->set('bairro', $this->Cidade->Bairro->find('list'));
 	}
 
 /**

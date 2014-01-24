@@ -17,6 +17,5 @@
 		<li><?php echo $this->Form->postLink(__('Deletar'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Deseja excluir# %s?', $this->Form->value('User.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Usuários'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

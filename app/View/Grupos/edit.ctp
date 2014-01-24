@@ -16,6 +16,5 @@
 		<li><?php echo $this->Form->postLink(__('Deletar'), array('action' => 'delete', $this->Form->value('Grupo.id')), null, __('Deseja excluir# %s?', $this->Form->value('Grupo.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Grupos'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Pendencias'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Pendencia'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -61,12 +61,9 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Nova Pendência'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Usuários'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Usuário'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Situações'), array('controller' => 'situacaos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Situação'), array('controller' => 'situacaos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Grupos'), array('controller' => 'grupos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Grupo'), array('controller' => 'grupos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pessoas'), array('controller' => 'pessoas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Pessoa'), array('controller' => 'pessoas', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Agenda'), array('controller' => 'agendas', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

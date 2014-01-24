@@ -23,7 +23,7 @@
 		</dd>
 		<dt><?php echo __('Bairro'); ?></dt>
 		<dd>
-			<?php echo h($pessoa['Pessoa']['bairro']); ?>
+			<?php echo $this->Html->link($pessoa['Bairro']['nome'], array('controller' => 'bairros', 'action' => 'view', $pessoa['Bairro']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Cidade'); ?></dt>
@@ -49,6 +49,26 @@
 		<dt><?php echo __('Celular'); ?></dt>
 		<dd>
 			<?php echo h($pessoa['Pessoa']['celular']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Documento'); ?></dt>
+		<dd>
+			<?php echo h($pessoa['Pessoa']['documento']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Título'); ?></dt>
+		<dd>
+			<?php echo h($pessoa['Pessoa']['titulo']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Zona'); ?></dt>
+		<dd>
+			<?php echo h($pessoa['Pessoa']['zona']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Seção'); ?></dt>
+		<dd>
+			<?php echo h($pessoa['Pessoa']['secao']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Obs'); ?></dt>
@@ -79,11 +99,9 @@
 		<li><?php echo $this->Html->link(__('Editar Pessoa'), array('action' => 'edit', $pessoa['Pessoa']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Deletar Pessoa'), array('action' => 'delete', $pessoa['Pessoa']['id']), null, __('Deseja excluir# %s?', $pessoa['Pessoa']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pessoas'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pessoa'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Cidades'), array('controller' => 'cidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Cidade'), array('controller' => 'cidades', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Bairros'), array('controller' => 'bairros', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">

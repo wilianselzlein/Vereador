@@ -17,6 +17,5 @@
 		<li><?php echo $this->Form->postLink(__('Deletar'), array('action' => 'delete', $this->Form->value('Cidade.id')), null, __('Deseja excluir# %s?', $this->Form->value('Cidade.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Cidades'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Pessoas'), array('controller' => 'pessoas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pessoa'), array('controller' => 'pessoas', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

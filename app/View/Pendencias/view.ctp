@@ -59,14 +59,9 @@
 		<li><?php echo $this->Html->link(__('Editar Pendência'), array('action' => 'edit', $pendencia['Pendencia']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Pendência'), array('action' => 'delete', $pendencia['Pendencia']['id']), null, __('Deseja excluir# %s?', $pendencia['Pendencia']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Usuários'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Usuário'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Situações'), array('controller' => 'situacaos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Situação'), array('controller' => 'situacaos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Grupos'), array('controller' => 'grupos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Grupo'), array('controller' => 'grupos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pessoas'), array('controller' => 'pessoas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pessoa'), array('controller' => 'pessoas', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

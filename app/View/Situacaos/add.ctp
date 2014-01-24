@@ -11,9 +11,7 @@
 <div class="actions">
 	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
-
 		<li><?php echo $this->Html->link(__('Listar Situações'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

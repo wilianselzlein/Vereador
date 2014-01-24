@@ -21,7 +21,6 @@
 		<li><?php echo $this->Html->link(__('Listar Grupos'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Novo Grupo'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">

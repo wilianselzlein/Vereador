@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
+			<th><?php echo $this->Paginator->sort('nascimento'); ?></th>			
 			<th><?php echo $this->Paginator->sort('endereco', 'Endereço'); ?></th>
 			<th><?php echo $this->Paginator->sort('numero', 'Número'); ?></th>
 			<th><?php echo $this->Paginator->sort('bairro'); ?></th>
@@ -12,8 +13,11 @@
 			<th><?php echo $this->Paginator->sort('fone'); ?></th>
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('celular'); ?></th>
+			<th><?php echo $this->Paginator->sort('Documento'); ?></th>
+			<th><?php echo $this->Paginator->sort('titulo', 'Título'); ?></th>
+			<th><?php echo $this->Paginator->sort('zona'); ?></th>
+			<th><?php echo $this->Paginator->sort('secao', 'Seção'); ?></th>
 			<th><?php echo $this->Paginator->sort('obs'); ?></th>
-			<th><?php echo $this->Paginator->sort('nascimento'); ?></th>
 			<th><?php echo $this->Paginator->sort('Cadastrado'); ?></th>
 			<th><?php echo $this->Paginator->sort('Alterado'); ?></th>
 			<th class="actions"><?php echo __('Menu'); ?></th>
@@ -22,9 +26,12 @@
 	<tr>
 		<td><?php echo h($pessoa['Pessoa']['id']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['nome']); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y", strtotime($pessoa['Pessoa']['nascimento'])); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['endereco']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['numero']); ?>&nbsp;</td>
-		<td><?php echo h($pessoa['Pessoa']['bairro']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($pessoa['Bairro']['nome'], array('controller' => 'bairros', 'action' => 'view', $pessoa['Bairro']['id'])); ?>
+		</td>
 		<td>
 			<?php echo $this->Html->link($pessoa['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $pessoa['Cidade']['id'])); ?>
 		</td>
@@ -32,8 +39,11 @@
 		<td><?php echo h($pessoa['Pessoa']['fone']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['email']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['celular']); ?>&nbsp;</td>
+		<td><?php echo h($pessoa['Pessoa']['documento']); ?>&nbsp;</td>
+		<td><?php echo h($pessoa['Pessoa']['titulo']); ?>&nbsp;</td>
+		<td><?php echo h($pessoa['Pessoa']['zona']); ?>&nbsp;</td>
+		<td><?php echo h($pessoa['Pessoa']['secao']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['obs']); ?>&nbsp;</td>
-		<td><?php echo date("d/m/y", strtotime($pessoa['Pessoa']['nascimento'])); ?>&nbsp;</td>
 		<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['created'])); ?>&nbsp;</td>
 		<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['modified'])); ?>&nbsp;</td>
 		<td class="actions">
@@ -63,8 +73,7 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Nova Pessoa'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Cidades'), array('controller' => 'cidades', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Cidade'), array('controller' => 'cidades', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Bairros'), array('controller' => 'bairros', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

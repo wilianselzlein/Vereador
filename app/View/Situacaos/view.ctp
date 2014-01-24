@@ -19,9 +19,7 @@
 		<li><?php echo $this->Html->link(__('Editar Situação'), array('action' => 'edit', $situacao['Situacao']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Situação'), array('action' => 'delete', $situacao['Situacao']['id']), null, __('Deseja excluir# %s?', $situacao['Situacao']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Situações'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Situação'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">

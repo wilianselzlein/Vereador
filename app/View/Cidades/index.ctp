@@ -39,6 +39,5 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Novo Cidade'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Pessoas'), array('controller' => 'pessoas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pessoa'), array('controller' => 'pessoas', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

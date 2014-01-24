@@ -1,19 +1,19 @@
-<div class="cidades view">
-<h2><?php  echo __('Cidade'); ?></h2>
+<div class="bairros view">
+<h2><?php  echo __('Bairro'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
-			<?php echo h($cidade['Cidade']['id']); ?>
+			<?php echo h($bairro['Bairro']['id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Nome'); ?></dt>
 		<dd>
-			<?php echo h($cidade['Cidade']['nome']); ?>
+			<?php echo h($bairro['Bairro']['nome']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('UF'); ?></dt>
+		<dt><?php echo __('Cidade'); ?></dt>
 		<dd>
-			<?php echo h($cidade['Cidade']['uf']); ?>
+			<?php echo $this->Html->link($bairro['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $bairro['Cidade']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -21,16 +21,19 @@
 <div class="actions">
 	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Editar Cidade'), array('action' => 'edit', $cidade['Cidade']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Deletar Cidade'), array('action' => 'delete', $cidade['Cidade']['id']), null, __('Deseja excluir# %s?', $cidade['Cidade']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Cidades'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Cidade'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Editar Bairro'), array('action' => 'edit', $bairro['Bairro']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Bairro'), array('action' => 'delete', $bairro['Bairro']['id']), null, __('Deseja excluir# %s?', $bairro['Bairro']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Bairros'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Bairro'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Cidades'), array('controller' => 'cidades', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Cidade'), array('controller' => 'cidades', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pessoas'), array('controller' => 'pessoas', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Pessoa'), array('controller' => 'pessoas', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
 	<h3><?php echo __('Pessoas Relacionadas'); ?></h3>
-	<?php if (!empty($cidade['Pessoa'])): ?>
+	<?php if (!empty($bairro['Pessoa'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -38,7 +41,7 @@
 		<th><?php echo __('Nascimento'); ?></th>		
 		<th><?php echo __('Endereço'); ?></th>
 		<th><?php echo __('Número'); ?></th>
-		<th><?php echo __('Bairro'); ?></th>
+		<th><?php echo __('Cidade'); ?></th>
 		<th><?php echo __('Cep'); ?></th>
 		<th><?php echo __('Fone'); ?></th>
 		<th><?php echo __('Email'); ?></th>
@@ -54,14 +57,14 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($cidade['Pessoa'] as $pessoa): ?>
+		foreach ($bairro['Pessoa'] as $pessoa): ?>
 		<tr>
 			<td><?php echo $pessoa['id']; ?></td>
 			<td><?php echo $pessoa['nome']; ?></td>
 			<td><?php echo date("d/m/y", strtotime($pessoa['nascimento'])); ?></td>
 			<td><?php echo $pessoa['endereco']; ?></td>
 			<td><?php echo $pessoa['numero']; ?></td>
-			<td><?php echo $this->Html->link($bairro[$pessoa['bairro_id']], array('controller' => 'bairros', 'action' => 'view', $pessoa['bairro_id'])); ?>
+			<td><?php echo $this->Html->link($cidade[$pessoa['cidade_id']], array('controller' => 'cidades', 'action' => 'view', $pessoa['cidade_id'])); ?>
 			<td><?php echo $pessoa['cep']; ?></td>
 			<td><?php echo $pessoa['fone']; ?></td>
 			<td><?php echo $pessoa['email']; ?></td>
@@ -81,41 +84,11 @@
 		</tr>
 	<?php endforeach; ?>
 	</table>
-	<?php endif; ?>
+<?php endif; ?>
+
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('Nova Pessoa'), array('controller' => 'pessoas', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
-	<br>
-	<br>
-	<br>
-	<h3><?php echo __('Bairros Relacionados'); ?></h3>
-	<?php if (!empty($cidade['Bairro'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Nome'); ?></th>		
-		<th class="actions"><?php echo __('Menu'); ?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($cidade['Bairro'] as $bairro): ?>
-		<tr>
-			<td><?php echo $bairro['id']; ?></td>
-			<td><?php echo $bairro['nome']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('Ver'), array('controller' => 'bairros', 'action' => 'view', $bairro['id'])); ?>
-				<?php echo $this->Html->link(__('Editar'), array('controller' => 'bairros', 'action' => 'edit', $bairro['id'])); ?>
-				<?php echo $this->Form->postLink(__('Deletar'), array('controller' => 'bairros', 'action' => 'delete', $bairro['id']), null, __('Deseja excluir# %s?', $bairro['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-	<?php endif; ?>
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('Novo Bairro'), array('controller' => 'bairros', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>	
 </div>

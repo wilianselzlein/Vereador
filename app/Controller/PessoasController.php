@@ -51,7 +51,8 @@ class PessoasController extends AppController {
 			}
 		}
 		$cidades = $this->Pessoa->Cidade->find('list');
-		$this->set(compact('cidades'));
+		$bairros = $this->Pessoa->Bairro->find('list');
+		$this->set(compact('cidades', 'bairros'));
 	}
 
 /**
@@ -77,7 +78,8 @@ class PessoasController extends AppController {
 			$this->request->data = $this->Pessoa->find('first', $options);
 		}
 		$cidades = $this->Pessoa->Cidade->find('list');
-		$this->set(compact('cidades'));
+		$bairros = $this->Pessoa->Bairro->find('list');
+		$this->set(compact('cidades', 'bairros'));
 	}
 
 /**

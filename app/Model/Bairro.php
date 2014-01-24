@@ -1,12 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Pessoa Model
+ * Bairro Model
  *
  * @property Cidade $Cidade
- * @property Pendencia $Pendencia
+ * @property Pessoa $Pessoa
  */
-class Pessoa extends AppModel {
+class Bairro extends AppModel {
 
 /**
  * Display field
@@ -31,39 +31,9 @@ class Pessoa extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'endereco' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'cidade_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'email' => array(
-			'email' => array(
-				'rule' => array('email'),
-				//'message' => 'Your custom message here',
-				'allowEmpty' => true,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'nascimento' => array(
-			'date' => array(
-				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -87,13 +57,6 @@ class Pessoa extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'Bairro' => array(
-			'className' => 'Bairro',
-			'foreignKey' => 'bairro_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
@@ -103,9 +66,9 @@ class Pessoa extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Pendencia' => array(
-			'className' => 'Pendencia',
-			'foreignKey' => 'pessoa_id',
+		'Pessoa' => array(
+			'className' => 'Pessoa',
+			'foreignKey' => 'bairro_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

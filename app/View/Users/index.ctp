@@ -45,6 +45,5 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Novo Usuário'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -1,18 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Cidade Model
+ * Agenda Model
  *
- * @property Pessoa $Pessoa
+ * @property User $User
  */
-class Cidade extends AppModel {
+class Agenda extends AppModel {
 
 /**
  * Display field
  *
  * @var string
  */
-	public $displayField = 'nome';
+	public $displayField = 'descricao';
 
 /**
  * Validation rules
@@ -20,7 +20,7 @@ class Cidade extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'nome' => array(
+		'descricao' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -30,9 +30,19 @@ class Cidade extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'uf' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'user_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'data' => array(
+			'date' => array(
+				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -45,37 +55,17 @@ class Cidade extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * hasMany associations
+ * belongsTo associations
  *
  * @var array
  */
-	public $hasMany = array(
-		'Pessoa' => array(
-			'className' => 'Pessoa',
-			'foreignKey' => 'cidade_id',
-			'dependent' => false,
+	public $belongsTo = array(
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Bairro' => array(
-			'className' => 'Bairro',
-			'foreignKey' => 'cidade_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+			'order' => ''
 		)
 	);
-
 }
