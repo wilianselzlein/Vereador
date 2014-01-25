@@ -84,11 +84,59 @@
 		</tr>
 	<?php endforeach; ?>
 	</table>
-<?php endif; ?>
-
+	<?php endif; ?>
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('Nova Pessoa'), array('controller' => 'pessoas', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
+	<br>
+	<br>
+	<br>
+	<h3><?php echo __('Pendências Relacionadas'); ?></h3>
+	
+	<?php if (!empty($pendencias)): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Data'); ?></th>
+		<th><?php echo __('Usuário'); ?></th>
+		<th><?php echo __('Pessoa'); ?></th>
+		<th><?php echo __('Situação'); ?></th>
+		<th><?php echo __('Grupo'); ?></th>
+		<th><?php echo __('Título'); ?></th>
+		<th><?php echo __('Histórico'); ?></th>
+		<th><?php echo __('Cadastrado'); ?></th>
+		<th><?php echo __('Alterado'); ?></th>
+		<th class="actions"><?php echo __('Menu'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($pendencias as $pendencia): ?>
+		<tr>
+			<td><?php echo $pendencia['Pendencia']['id']; ?></td>
+			<td><?php echo date("d/m/y", strtotime($pendencia['Pendencia']['data'])); ?></td>
+			<td><?php echo $this->Html->link($pendencia['User']['username'], array('controller' => 'users', 'action' => 'view', $pendencia['Pendencia']['user_id'])); ?>
+			<td><?php echo $this->Html->link($pendencia['Pessoa']['nome'], array('controller' => 'pessoas', 'action' => 'view', $pendencia['Pendencia']['pessoa_id'])); ?>
+			<td><?php echo $this->Html->link($pendencia['Situacao']['nome'], array('controller' => 'situacaos', 'action' => 'view', $pendencia['Pendencia']['situacao_id'])); ?>
+			<td><?php echo $this->Html->link($pendencia['Grupo']['nome'], array('controller' => 'grupos', 'action' => 'view', $pendencia['Pendencia']['grupo_id'])); ?>
+			<td><?php echo $pendencia['Pendencia']['titulo']; ?></td>
+			<td><?php echo $pendencia['Pendencia']['historico']; ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['modified'])); ?></td>
+			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['created'])); ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('Ver'), array('controller' => 'pendencias', 'action' => 'view', $pendencia['Pendencia']['id'])); ?>
+				<?php echo $this->Html->link(__('Editar'), array('controller' => 'pendencias', 'action' => 'edit', $pendencia['Pendencia']['id'])); ?>
+				<?php echo $this->Form->postLink(__('Deletar'), array('controller' => 'pendencias', 'action' => 'delete', $pendencia['Pendencia']['id']), null, __('Deseja excluir# %s?', $pendencia['Pendencia']['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+	<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>

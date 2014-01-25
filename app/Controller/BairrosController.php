@@ -31,7 +31,7 @@ class BairrosController extends AppController {
 		$options = array('conditions' => array('Bairro.' . $this->Bairro->primaryKey => $id));
 		$this->set('bairro', $this->Bairro->find('first', $options));
 		$this->set('cidade', $this->Bairro->Cidade->find('list'));
-		$this->set('pendencia', $this->Bairro->Pessoa->Pendencia->find('list'));
+		$this->set('pendencias', $this->Bairro->Pessoa->Pendencia->find('all', array('conditions' => array('Pessoa.bairro_id' => $id))));
 	}
 
 /**
