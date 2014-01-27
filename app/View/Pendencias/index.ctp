@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('data', 'Data'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id', 'Usuário'); ?></th>
 			<th><?php echo $this->Paginator->sort('situacao_id', 'Situação'); ?></th>
+			<th>&nbsp;</th>
 			<th><?php echo $this->Paginator->sort('grupo_id', 'Grupo'); ?></th>
 			<th><?php echo $this->Paginator->sort('pessoa_id', 'Pessoa'); ?></th>
 			<th><?php echo $this->Paginator->sort('titulo', 'Título'); ?></th>
@@ -23,6 +24,9 @@
 		</td>
 		<td>
 			<?php echo $this->Html->link($pendencia['Situacao']['nome'], array('controller' => 'situacaos', 'action' => 'view', $pendencia['Situacao']['id'])); ?>
+		</td>
+		<td class="actions">
+		    <?php if ($pendencia['Situacao']['id'] <> 3) echo $this->Html->link(__('Fechar'), array('action' => 'fechar', $pendencia['Pendencia']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($pendencia['Grupo']['nome'], array('controller' => 'grupos', 'action' => 'view', $pendencia['Grupo']['id'])); ?>

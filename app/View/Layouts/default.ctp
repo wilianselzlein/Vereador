@@ -45,14 +45,16 @@ $cakeDescription = __d('cake_dev', 'Sistema gerenciador de Pendências');
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
+			<?php /*echo $this->Html->link(
 					$this->Html->image('log.out.png', array('alt' => 'Sair do Sistema', 'border' => '0')),
 					array('controller' => 'Users', 'action'=>'logout'),
 					array('escape' => false)
-				);
+				);*/
 			?>
+			<div class="actions" align ="left">
+			    <?php echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout')); ?>
+			</div>
 		</div>
-	    
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>

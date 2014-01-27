@@ -16,7 +16,29 @@ class PendenciasController extends AppController {
 		$this->Pendencia->recursive = 0;
 		$this->set('pendencias', $this->paginate());
 	}
+/**
+ * fechar method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function fechar($id = null) {
+		if (!$this->Pendencia->exists($id)) {
+			throw new NotFoundException(__('Pendencia invalida'));
+		}
+	
+		$model = new Pendencia(); 
+		$savedata = array();
+		$savedata['id'] = $id;
+		$savedata['situacao_id'] = 3;
+		$model->create();
+		$model->save($savedata);
 
+		$this->Session->setFlash(__('Pendencia fechada.'));
+		$this->redirect(array('action' => 'index'));
+		
+	}
 /**
  * view method
  *

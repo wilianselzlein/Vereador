@@ -96,7 +96,7 @@ App::uses('Debugger', 'Utility');
     <table border="0">
     <tr>
 	<th><?php echo __('Última(s) cadastrada(s):'); ?></th>
-	<th><?php echo __('Últimas(s) alteradas(s):'); ?></th>
+	<th><?php echo __('Última(s) alteradas(s):'); ?></th>
     </tr>
     <tr>
 	<td>    
