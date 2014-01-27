@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Data'); ?></dt>
 		<dd>
-			<?php echo date("d/m/y", strtotime($agenda['Agenda']['data'])); ?>
+			<?php echo date("d/m/y G:i", strtotime($agenda['Agenda']['data'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

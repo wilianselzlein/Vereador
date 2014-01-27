@@ -41,8 +41,8 @@ class Agenda extends AppModel {
 			),
 		),
 		'data' => array(
-			'date' => array(
-				'rule' => array('date'),
+			'datetime' => array(
+				'rule' => array('datetime'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

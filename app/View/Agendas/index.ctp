@@ -15,7 +15,7 @@
 		<td>
 			<?php echo $this->Html->link($agenda['User']['username'], array('controller' => 'users', 'action' => 'view', $agenda['User']['id'])); ?>
 		</td>
-		<td><?php echo date("d/m/y", strtotime($agenda['Agenda']['data'])); ?>&nbsp;</td>
+		<td><?php echo date("d/m/y G:i", strtotime($agenda['Agenda']['data'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $agenda['Agenda']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $agenda['Agenda']['id'])); ?>

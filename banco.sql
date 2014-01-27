@@ -30,3 +30,5 @@ ALTER TABLE pendencias ADD FOREIGN KEY (user_id) REFERENCES users(id);
 ALTER TABLE pendencias ADD FOREIGN KEY (situacao_id) REFERENCES situacaos(id);
 ALTER TABLE pendencias ADD FOREIGN KEY (grupo_id) REFERENCES grupos(id);
 ALTER TABLE pendencias ADD FOREIGN KEY (pessoa_id) REFERENCES pessoas(id);
+
+ALTER TABLE `agendas` CHANGE `data` `data` DATETIME NOT NULL 

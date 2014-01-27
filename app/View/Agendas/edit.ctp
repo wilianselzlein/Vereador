@@ -6,7 +6,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('descricao', array('label' => 'Descrição'));
 		echo $this->Form->input('user_id', array('label' => 'Usuário'));
-		echo $this->Form->input('data', array('label' => 'Data', 'dateFormat' => 'DMY', 'minYear' => date('Y') - 100, 'maxYear' => date('Y')));
+		echo $this->Form->input('data', array('label' => 'Data', 'dateFormat' => 'DMY', 'timeFormat' => '24', 'minYear' => date('Y') - 100, 'maxYear' => date('Y')));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Salvar')); ?>

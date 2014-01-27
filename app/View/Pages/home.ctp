@@ -64,7 +64,7 @@ App::uses('Debugger', 'Utility');
 		<?php 
 		    $tarefas = ClassRegistry::init('Agenda')->find('all', array('limit' => 5, 'conditions' => array('Agenda.data < ' => date('y.m.d')), 'order' => 'Agenda.data desc')); 
 		    foreach ($tarefas as $tarefa) { ?>
-			<li><?php echo __(date('d/m', strtotime($tarefa['Agenda']['data'])) . ' '); echo $this->Html->link($tarefa['Agenda']['descricao'], array('controller' => 'agendas', 'action' => 'view', $tarefa['Agenda']['id'])); ?></li>
+			<li><?php echo __(date('d/m G:i', strtotime($tarefa['Agenda']['data'])) . ' '); echo $this->Html->link($tarefa['Agenda']['descricao'], array('controller' => 'agendas', 'action' => 'view', $tarefa['Agenda']['id'])); ?></li>
 		<?php } ?>
 	    </ul>
 	</td>
@@ -73,7 +73,7 @@ App::uses('Debugger', 'Utility');
 		<?php 
 		    $tarefas = ClassRegistry::init('Agenda')->find('all', array('limit' => 5, 'conditions' => array('Agenda.data >= ' => date('y.m.d')), 'order' => 'Agenda.data asc')); 
 		    foreach ($tarefas as $tarefa) { ?>
-			<li><?php echo __(date('d/m', strtotime($tarefa['Agenda']['data'])) . ' '); echo $this->Html->link($tarefa['Agenda']['descricao'], array('controller' => 'agendas', 'action' => 'view', $tarefa['Agenda']['id'])); ?></li>
+			<li><?php echo __(date('d/m G:i', strtotime($tarefa['Agenda']['data'])) . ' '); echo $this->Html->link($tarefa['Agenda']['descricao'], array('controller' => 'agendas', 'action' => 'view', $tarefa['Agenda']['id'])); ?></li>
 		<?php } ?>
 	    </ul>
 	</td>
