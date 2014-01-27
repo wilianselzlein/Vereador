@@ -18,6 +18,11 @@
 */
 ?>
 <h2><?php echo __d('cake_dev', 'Erro de Banco de Dados'); ?></h2>
+<p class="notice">
+        <strong><?php echo __d('cake_dev', 'Ajuda'); ?>: </strong>
+        <?php echo __d('cake_dev', 'Erro em executar esse comando. Qualquer dúvida peça ajuda ao suporte técnico.'); ?>
+</p>
+
 <p class="error">
         <strong><?php echo __d('cake_dev', 'Error'); ?>: </strong>
         <?php echo $name; ?>
@@ -32,7 +37,3 @@
                 <strong><?php echo __d('cake_dev', 'SQL Query Params'); ?>: </strong>
                 <?php echo Debugger::dump($error->params); ?>
 <?php endif; ?>
-<p class="notice">
-        <strong><?php echo __d('cake_dev', 'Ajuda'); ?>: </strong>
-        <?php echo __d('cake_dev', 'Qualquer dúvida peça ajuda ao suporte técnico.'); ?>
-</p>

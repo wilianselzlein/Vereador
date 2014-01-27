@@ -41,31 +41,58 @@ App::uses('Debugger', 'Utility');
 	</ul>
 </div>
 <div class="index">
-    
-    <h3><?php echo __('Tarefas:'); ?></h3>
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 0px">
+	<tr style="padding: 0px;">
+	    <td style="padding: 0px; border-bottom:0px" width="30%">
+		<h3><?php echo ClassRegistry::init('Agenda')->find('count'); echo __(' Tarefa(s):'); ?></h3>
+	    </td>
+	    <td style="padding: 0px; border-bottom:0px" width="70%">
+		<div class="actions">
+		<?php echo $this->Html->link(__('Nova Tarefa'), array('controller' => 'agendas', 'action' => 'add')); ?>
+		</div>
+	    </td>
+	</tr>
+    </table>
     <table border="0">
     <tr>
 	<th><?php echo __('Última(s) tarefa(s):'); ?></th>
 	<th><?php echo __('Próxima(s) tarefa(s):'); ?></th>
     </tr>
-    <tr>
+    <tr>    
 	<td>    
 	    <ul>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 1)); echo __(' bla bla bla'); ?></li>
+		<?php 
+		    $tarefas = ClassRegistry::init('Agenda')->find('all', array('limit' => 5, 'conditions' => array('Agenda.data < ' => date('y.m.d')), 'order' => 'Agenda.data desc')); 
+		    foreach ($tarefas as $tarefa) { ?>
+			<li><?php echo __(date('d/m', strtotime($tarefa['Agenda']['data'])) . ' '); echo $this->Html->link($tarefa['Agenda']['descricao'], array('controller' => 'agendas', 'action' => 'view', $tarefa['Agenda']['id'])); ?></li>
+		<?php } ?>
 	    </ul>
 	</td>
 	<td> 
 	    <ul>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 1)); echo __(' bla bla bla'); ?></li>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 2)); echo __(' bla bla bla'); ?></li>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 3)); echo __(' bla bla bla'); ?></li>
+		<?php 
+		    $tarefas = ClassRegistry::init('Agenda')->find('all', array('limit' => 5, 'conditions' => array('Agenda.data >= ' => date('y.m.d')), 'order' => 'Agenda.data asc')); 
+		    foreach ($tarefas as $tarefa) { ?>
+			<li><?php echo __(date('d/m', strtotime($tarefa['Agenda']['data'])) . ' '); echo $this->Html->link($tarefa['Agenda']['descricao'], array('controller' => 'agendas', 'action' => 'view', $tarefa['Agenda']['id'])); ?></li>
+		<?php } ?>
 	    </ul>
 	</td>
     </tr>
     </table> 
     <br>
     
-    <h3><?php echo __('Pendências:'); ?></h3>
+    <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 0px">
+	<tr style="padding: 0px;">
+	    <td style="padding: 0px; border-bottom:0px" width="30%">
+		<h3><?php echo ClassRegistry::init('Pendencias')->find('count'); echo __(' Pendência(s):'); ?></h3>
+	    </td>
+	    <td style="padding: 0px; border-bottom:0px" width="70%">
+		<div class="actions">
+		<?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?>
+		</div>
+	    </td>
+	</tr>
+    </table>
     <table border="0">
     <tr>
 	<th><?php echo __('Última(s) cadastrada(s):'); ?></th>
@@ -74,14 +101,20 @@ App::uses('Debugger', 'Utility');
     <tr>
 	<td>    
 	    <ul>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 1)); echo __(' bla bla bla'); ?></li>
+		<?php 
+		    $pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.created desc')); 
+		    foreach ($pends as $pen) { ?>
+			<li><?php echo __(date('d/m H:i', strtotime($pen['Pendencia']['created'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></li>
+		<?php } ?>
 	    </ul>
 	</td>
 	<td> 
 	    <ul>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 1)); echo __(' bla bla bla'); ?></li>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 2)); echo __(' bla bla bla'); ?></li>
-		<li><?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 3)); echo __(' bla bla bla'); ?></li>
+		<?php 
+		    $pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.modified desc')); 
+		    foreach ($pends as $pen) { ?>
+			<li><?php echo __(date('d/m H:i', strtotime($pen['Pendencia']['modified'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></li>
+		<?php } ?>
 	    </ul>
 	</td>
     </tr>
@@ -94,29 +127,26 @@ App::uses('Debugger', 'Utility');
 	<th><?php echo __('Fechadas(s):'); ?></th>
     </tr>
     <tr>
-	<td>    
-	    <span class="notice">
-		<?php echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.'); ?>
-	    </span>
-	    <span class="notice">
-		<?php echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.'); ?>
-	    </span>
+	<td>
+	    <?php 
+		$pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.data desc', 'conditions' => array('Pendencia.situacao_id ' => '1'))); 
+		foreach ($pends as $pen) { ?>
+		    <span class="notice"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
+	    <?php } ?>
 	</td>
 	<td>    
-	    <span class="notice error-message">
-		<?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 1)); echo __(' bla bla bla'); ?>
-	    </span>
-	    <span class="notice error-message">
-		<?php echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.'); ?>
-	    </span>
+	    <?php 
+		$pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.data desc', 'conditions' => array('Pendencia.situacao_id ' => '2'))); 
+		foreach ($pends as $pen) { ?>
+		    <span class="notice error-message"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
+	    <?php } ?>
 	</td>
 	<td> 
-	    <span class="notice success">
-		<?php echo $this->Html->link('Tarefa', array('controller' => 'agendas', 'action' => 'view', 1)); echo __(' bla bla bla'); ?>
-	    </span>
-	    <span class="notice success">
-		<?php echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.'); ?>
-	    </span>
+	    <?php 
+		$pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.data desc', 'conditions' => array('Pendencia.situacao_id ' => '3'))); 
+		foreach ($pends as $pen) { ?>
+		    <span class="notice success"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
+	    <?php } ?>
 	</td>
     </tr>
     </table> 
