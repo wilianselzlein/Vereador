@@ -13,6 +13,27 @@ class PendenciasController extends AppController {
  * @return void
  */
 	public function index() {
+		$this->Filter->addFilters(
+			array('filter1' => array('OR' => array(
+						'Pendencia.id' => array('operator' => 'LIKE')
+					)
+				),
+				'filter2' => array(
+					'Pendencia.pessoa_id' => array(
+						'select' => $this->Filter->select('Pessoas:', $this->Pendencia->Pessoa->find('list'))
+					)
+				),
+				'filter3' => array(
+					'Pendencia.grupo_id' => array(
+						'select' => $this->Filter->select('Grupos:', $this->Pendencia->Grupo->find('list'))
+					)
+				)
+			)
+		);
+		$this->Filter->setPaginate('order', 'Pendencia.id ASC'); // optional
+		$this->Filter->setPaginate('limit', 10); // optional
+		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
+
 		$this->Pendencia->recursive = 0;
 		$this->set('pendencias', $this->paginate());
 	}

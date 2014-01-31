@@ -8,6 +8,17 @@ App::uses('AppController', 'Controller');
 class CidadesController extends AppController {
 
 /**
+ * cep method
+ * @param string $id
+ * @return void
+ */
+	public function cep($id = null) {
+		$this->layout = 'ajax';
+		$cep = $this->Cidade->find('first', array('recursive' => -1, 'fields' => 'cep', 'conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id)));
+		$this->set(compact('cep'));
+	}
+
+/**
  * index method
  *
  * @return void

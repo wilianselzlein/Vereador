@@ -1,4 +1,5 @@
 <div class="pendencias index">
+	<?php include dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'filtros3.php'; ?>
 	<h2><?php echo __('Pendências'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>

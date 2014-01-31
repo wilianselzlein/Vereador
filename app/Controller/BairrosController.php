@@ -13,6 +13,23 @@ class BairrosController extends AppController {
  * @return void
  */
 	public function index() {
+		$this->Filter->addFilters(
+			array('filter1' => array('OR' => array(
+						'Bairro.id' => array('operator' => 'LIKE'),
+						'Bairro.nome' => array('operator' => 'LIKE')
+					)
+				),
+				'filter2' => array(
+					'Bairro.cidade_id' => array(
+						'select' => $this->Filter->select('Cidades:', $this->Bairro->Cidade->find('list'))
+					)
+				)	
+			)		
+		);
+		$this->Filter->setPaginate('order', 'Bairro.nome ASC'); // optional
+		$this->Filter->setPaginate('limit', 10); // optional
+		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
+		
 		$this->Bairro->recursive = 0;
 		$this->set('bairros', $this->paginate());
 	}
@@ -43,7 +60,7 @@ class BairrosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Bairro->create();
 			if ($this->Bairro->save($this->request->data)) {
-				$this->Session->setFlash(__('The bairro foi salvo.'));
+				$this->Session->setFlash(__('O bairro foi salvo.'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('O bairro nao pode ser salvo. Tente novamente.'));

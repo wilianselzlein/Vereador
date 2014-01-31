@@ -13,7 +13,10 @@ class Cidade extends AppModel {
  * @var string
  */
 	public $displayField = 'nome';
-
+	
+	public $virtualFields = array(
+	    'nomecep' => 'CONCAT("#", Cidade.nome, " - ", Cidade.cep)' //Cidade__nomecep
+	);
 /**
  * Validation rules
  *

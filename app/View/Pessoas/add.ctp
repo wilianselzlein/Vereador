@@ -1,3 +1,6 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<?php echo $this->html->script("cep", array('inline'=>true)); ?>
+
 <div class="pessoas form">
 <?php echo $this->Form->create('Pessoa'); ?>
 	<fieldset>
@@ -7,7 +10,7 @@
 		echo $this->Form->input('nascimento', array('label' => 'Nascimento', 'dateFormat' => 'DMY', 'minYear' => date('Y') - 100, 'maxYear' => date('Y')));
 		echo $this->Form->input('endereco', array('label' => 'Endereço'));
 		echo $this->Form->input('numero', array('label' => 'Número'));
-		echo $this->Form->input('bairro_id', array('label' => 'Bairro'));
+		echo $this->Form->input('bairro_id', array('label' => 'Bairro', 'style' => 'width:100%'));
 		echo $this->Form->input('cidade_id', array('label' => 'Cidade'));
 		echo $this->Form->input('cep', array('label' => 'CEP'));
 		echo $this->Form->input('fone', array('label' => 'Fone'));

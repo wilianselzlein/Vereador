@@ -39,9 +39,39 @@ class AppController extends Controller {
         'Auth' => array(
             'loginRedirect' => array('controller' => 'pendencias', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'pendencias', 'action' => 'index')
+        ),
+        'FilterResults.Filter' => array(
+            'auto' => array(
+                'paginate' => false,
+                'explode'  => true,  // recommended
+            ),
+            'explode' => array(
+                'character'   => ' ',
+                'concatenate' => 'AND',
+            )
         )
     );
 
+    public $helpers = array(
+        'Session',
+        'Html',
+        'Form',
+        'FilterResults.Search' => array(
+            'operators' => array(
+                'LIKE'       => 'containing',
+                'NOT LIKE'   => 'not containing',
+                'LIKE BEGIN' => 'starting with',
+                'LIKE END'   => 'ending with',
+                '='  => 'equal to',
+                '!=' => 'different',
+                '>'  => 'greater than',
+                '>=' => 'greater or equal to',
+                '<'  => 'less than',
+                '<=' => 'less or equal to'
+            )
+        )
+    );
+    
     function beforeFilter() {
         //$this->Auth->allow('index', 'view');
     }

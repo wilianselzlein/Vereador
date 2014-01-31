@@ -1,3 +1,5 @@
+<?php include dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'javascript.php'; ?>
+<?php include dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'chosen.html'; ?>
 <div class="pendencias form">
 <?php echo $this->Form->create('Pendencia'); ?>
 	<fieldset>
@@ -5,10 +7,10 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('data', array('label' => 'Data', 'dateFormat' => 'DMY', 'minYear' => date('Y') - 100, 'maxYear' => date('Y')));
-		echo $this->Form->input('user_id', array('label' => 'Usuário'));
-		echo $this->Form->input('situacao_id', array('label' => 'Situação'));
-		echo $this->Form->input('grupo_id', array('label' => 'Grupo'));
-		echo $this->Form->input('pessoa_id', array('label' => 'Pessoa'));
+		echo $this->Form->input('user_id', array('label' => 'Usuário', 'class' => 'chzn-select', 'style' => 'width:100%'));
+		echo $this->Form->input('situacao_id', array('label' => 'Situação', 'class' => 'chzn-select', 'style' => 'width:100%'));
+		echo $this->Form->input('grupo_id', array('label' => 'Grupo', 'class' => 'chzn-select', 'style' => 'width:100%'));
+		echo $this->Form->input('pessoa_id', array('label' => 'Pessoa', 'class' => 'chzn-select', 'style' => 'width:100%'));
 		echo $this->Form->input('titulo', array('label' => 'Título'));
 		echo $this->Form->input('historico', array('label' => 'Histórico'));
 	?>
@@ -26,3 +28,4 @@
 		<li><?php echo $this->Html->link(__('Listar Pessoas'), array('controller' => 'pessoas', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
+<?php include dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'chosenjs.html'; ?>

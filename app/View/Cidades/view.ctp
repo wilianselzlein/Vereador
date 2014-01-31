@@ -16,6 +16,11 @@
 			<?php echo h($cidade['Cidade']['uf']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('CEP'); ?></dt>
+		<dd>
+			<?php echo h($cidade['Cidade']['cep']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

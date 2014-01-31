@@ -6,6 +6,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('nome', array('label' => 'Nome'));
 		echo $this->Form->input('uf', array('options' => Configure::read('UF'),'empty' => 'UF:'));
+		echo $this->Form->input('cep', array('label' => 'CEP'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Salvar')); ?>

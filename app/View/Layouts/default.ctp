@@ -29,7 +29,8 @@ $cakeDescription = __d('cake_dev', 'Sistema gerenciador de Pendências');
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('cake.generic', 'stylesheet', array('media' => 'screen'));
+		echo $this->Html->css('cake.generic.print', 'stylesheet', array('media' => 'print'));
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
