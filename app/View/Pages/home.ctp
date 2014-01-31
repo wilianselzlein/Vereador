@@ -119,12 +119,13 @@ App::uses('Debugger', 'Utility');
 	</td>
     </tr>
     </table> 
-
+</div>
+<div class="related">
     <table border="0">
     <tr>
-	<th><?php echo __('Aberta(s):'); ?></th>
-	<th><?php echo __('Pendente(s):'); ?></th>
-	<th><?php echo __('Fechadas(s):'); ?></th>
+	<th width="33%"><?php echo __('Aberta(s):'); ?></th>
+	<th width="33%"><?php echo __('Pendente(s):'); ?></th>
+	<th width="33%"><?php echo __('Fechadas(s):'); ?></th>
     </tr>
     <tr>
 	<td>
@@ -150,5 +151,12 @@ App::uses('Debugger', 'Utility');
 	</td>
     </tr>
     </table> 
-
+	<h3><?php echo __('Aniversariantes'); ?></h3>
+	<ul>
+	    <?php 
+		$anivs = ClassRegistry::init('Pessoa')->find('all', array('conditions' => array('EXTRACT(month FROM Pessoa.nascimento) ' => date('m')), 'order' => 'EXTRACT(DAY FROM Pessoa.nascimento)')); 
+		foreach ($anivs as $pessoa) { ?>
+		    <li><?php echo __(date('d', strtotime($pessoa['Pessoa']['nascimento'])) . ' '); echo $this->Html->link($pessoa['Pessoa']['nome'], array('controller' => 'pessoas', 'action' => 'view', $pessoa['Pessoa']['id'])); ?></li>
+	    <?php } ?>
+	</ul>
 </div>
