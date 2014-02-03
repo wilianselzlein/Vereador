@@ -151,7 +151,7 @@ App::uses('Debugger', 'Utility');
 	</td>
     </tr>
     </table> 
-	<h3><?php echo __('Aniversariantes'); ?></h3>
+	<h3><?php echo __('Aniversariante(s)'); ?></h3>
 	<ul>
 	    <?php 
 		$anivs = ClassRegistry::init('Pessoa')->find('all', array('conditions' => array('EXTRACT(month FROM Pessoa.nascimento) ' => date('m')), 'order' => 'EXTRACT(DAY FROM Pessoa.nascimento)')); 
