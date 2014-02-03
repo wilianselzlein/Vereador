@@ -68,6 +68,10 @@ class PessoasController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Pessoa->create();
+			if ($this->request->data['Pessoa']['cep'] == '') {
+			    $cid = $this->Pessoa->Cidade->findById($this->request->data['Pessoa']['cidade_id']);
+			    $this->request->data['Pessoa']['cep'] = $cid['Cidade']['cep'];
+			}
 			if ($this->Pessoa->save($this->request->data)) {
 				$this->Session->setFlash(__('Pessoa salva.'));
 				$this->redirect(array('action' => 'index'));
