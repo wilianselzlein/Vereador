@@ -15,12 +15,7 @@
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('celular'); ?></th>
 			<th><?php echo $this->Paginator->sort('Documento'); ?></th>
-			<th><?php echo $this->Paginator->sort('titulo', 'Título'); ?></th>
-			<th><?php echo $this->Paginator->sort('zona'); ?></th>
-			<th><?php echo $this->Paginator->sort('secao', 'Seção'); ?></th>
 			<th><?php echo $this->Paginator->sort('obs'); ?></th>
-			<th><?php echo $this->Paginator->sort('Cadastrado'); ?></th>
-			<th><?php echo $this->Paginator->sort('Alterado'); ?></th>
 			<th class="actions"><?php echo __('Menu'); ?></th>
 	</tr>
 	<?php foreach ($pessoas as $pessoa): ?>
@@ -41,12 +36,7 @@
 		<td><?php echo h($pessoa['Pessoa']['email']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['celular']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['documento']); ?>&nbsp;</td>
-		<td><?php echo h($pessoa['Pessoa']['titulo']); ?>&nbsp;</td>
-		<td><?php echo h($pessoa['Pessoa']['zona']); ?>&nbsp;</td>
-		<td><?php echo h($pessoa['Pessoa']['secao']); ?>&nbsp;</td>
 		<td><?php echo h($pessoa['Pessoa']['obs']); ?>&nbsp;</td>
-		<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['created'])); ?>&nbsp;</td>
-		<td><?php echo date("d/m/y H:i:s", strtotime($pessoa['Pessoa']['modified'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $pessoa['Pessoa']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $pessoa['Pessoa']['id'])); ?>

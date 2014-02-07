@@ -27,6 +27,11 @@ class PendenciasController extends AppController {
 					'Pendencia.grupo_id' => array(
 						'select' => $this->Filter->select('Grupos:', $this->Pendencia->Grupo->find('list'))
 					)
+				),
+				'filter4' => array(
+				    'Pendencia.data' => array(
+					'operator' => 'between',
+				        'between' => array( 'text' => __(' e ', true), 'date' => true))
 				)
 			)
 		);
