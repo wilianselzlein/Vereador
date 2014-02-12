@@ -34,3 +34,6 @@ ALTER TABLE pendencias ADD FOREIGN KEY (pessoa_id) REFERENCES pessoas(id);
 ALTER TABLE `agendas` CHANGE `data` `data` DATETIME NOT NULL 
 
 alter table cidades add column cep varchar(9);
+
+ALTER TABLE pessoas CHANGE celular celular VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE pessoas CHANGE fone fone VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;

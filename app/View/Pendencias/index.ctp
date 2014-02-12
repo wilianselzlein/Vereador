@@ -10,6 +10,7 @@
 			<th>&nbsp;</th>
 			<th><?php echo $this->Paginator->sort('grupo_id', 'Grupo'); ?></th>
 			<th><?php echo $this->Paginator->sort('pessoa_id', 'Pessoa'); ?></th>
+			<th><?php echo $this->Paginator->sort('celular', 'Telefone'); ?></th>
 			<th><?php echo $this->Paginator->sort('titulo', 'Título'); ?></th>
 			<th><?php echo $this->Paginator->sort('historico', 'Hitórico'); ?></th>
 			<th><?php echo $this->Paginator->sort('Cadastrado'); ?></th>
@@ -35,6 +36,7 @@
 		<td>
 			<?php echo $this->Html->link($pendencia['Pessoa']['nome'], array('controller' => 'pessoas', 'action' => 'view', $pendencia['Pessoa']['id'])); ?>
 		</td>
+		<td><?php echo h($pendencia['Pessoa']['fone']); ?>&nbsp;<?php echo h($pendencia['Pessoa']['celular']); ?></td>
 		<td><?php echo h($pendencia['Pendencia']['titulo']); ?>&nbsp;</td>
 		<td><?php echo h($pendencia['Pendencia']['historico']); ?>&nbsp;</td>
 		<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['created'])); ?>&nbsp;</td>

@@ -23,7 +23,7 @@ class UsersController extends AppController {
  */
 	public function index() {
 		$this->User->recursive = 0;
-		$this->set('users', $this->paginate());
+		$this->set('users', $this->paginate(array(), array('limit' => $this->User->find('count'))));
 	}
 
 	public function login() {

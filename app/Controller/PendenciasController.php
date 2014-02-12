@@ -36,7 +36,7 @@ class PendenciasController extends AppController {
 			)
 		);
 		$this->Filter->setPaginate('order', 'Pendencia.id ASC'); // optional
-		$this->Filter->setPaginate('limit', 10); // optional
+		//$this->Filter->setPaginate('limit', 10); // optional
 		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
 
 		$this->Pendencia->recursive = 0;

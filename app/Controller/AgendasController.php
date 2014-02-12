@@ -14,7 +14,7 @@ class AgendasController extends AppController {
  */
 	public function index() {
 		$this->Agenda->recursive = 0;
-		$this->set('agendas', $this->paginate());
+		$this->set('agendas', $this->paginate(array(), array('limit' => $this->Agenda->find('count'))));
 	}
 
 /**

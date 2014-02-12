@@ -88,7 +88,7 @@ App::uses('Debugger', 'Utility');
 	    </td>
 	    <td style="padding: 0px; border-bottom:0px" width="70%">
 		<div class="actions">
-		<?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?>
+		<?php echo $this->Html->link(__('Nova Pend.'), array('controller' => 'pendencias', 'action' => 'add')); ?>
 		</div>
 	    </td>
 	</tr>

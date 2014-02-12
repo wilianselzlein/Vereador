@@ -35,7 +35,7 @@ class PessoasController extends AppController {
 			)
 		);
 		$this->Filter->setPaginate('order', 'Pessoa.nome ASC'); // optional
-		$this->Filter->setPaginate('limit', 10); // optional
+		//$this->Filter->setPaginate('limit', 10); // optional
 		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
 
 		$this->Pessoa->recursive = 0;
