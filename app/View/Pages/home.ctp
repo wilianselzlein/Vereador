@@ -123,18 +123,10 @@ App::uses('Debugger', 'Utility');
 <div class="related">
     <table border="0">
     <tr>
-	<th width="33%"><?php echo __('Aberta(s):'); ?></th>
 	<th width="33%"><?php echo __('Pendente(s):'); ?></th>
 	<th width="33%"><?php echo __('Fechadas(s):'); ?></th>
     </tr>
     <tr>
-	<td>
-	    <?php 
-		$pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.data desc', 'conditions' => array('Pendencia.situacao_id ' => '1'))); 
-		foreach ($pends as $pen) { ?>
-		    <span class="notice"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
-	    <?php } ?>
-	</td>
 	<td>    
 	    <?php 
 		$pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.data desc', 'conditions' => array('Pendencia.situacao_id ' => '2'))); 
