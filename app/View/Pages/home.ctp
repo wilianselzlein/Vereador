@@ -131,14 +131,14 @@ App::uses('Debugger', 'Utility');
 	    <?php 
 		$pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.data desc', 'conditions' => array('Pendencia.situacao_id ' => '2'))); 
 		foreach ($pends as $pen) { ?>
-		    <span class="notice error-message"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
+		    <span class="notice error-message"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'] . ' - ' . $pen['Pessoa']['nome'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
 	    <?php } ?>
 	</td>
 	<td> 
 	    <?php 
 		$pends = ClassRegistry::init('Pendencia')->find('all', array('limit' => 5, 'order' => 'Pendencia.data desc', 'conditions' => array('Pendencia.situacao_id ' => '3'))); 
 		foreach ($pends as $pen) { ?>
-		    <span class="notice success"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
+		    <span class="notice success"><?php echo __(date('d/m/y', strtotime($pen['Pendencia']['data'])) . ' '); echo $this->Html->link($pen['Pendencia']['titulo'] . ' - ' . $pen['Pessoa']['nome'], array('controller' => 'pendencias', 'action' => 'view', $pen['Pendencia']['id'])); ?></span>
 	    <?php } ?>
 	</td>
     </tr>
