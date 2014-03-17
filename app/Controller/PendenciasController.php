@@ -27,6 +27,11 @@ class PendenciasController extends AppController {
 					'Pendencia.grupo_id' => array(
 						'select' => $this->Filter->select('Grupos:', $this->Pendencia->Grupo->find('list'))
 					)
+				),
+				'filter4' => array(
+					'Pendencia.situacao_id' => array(
+						'select' => $this->Filter->select('Situacaos:', $this->Pendencia->Situacao->find('list'))
+					)
 				)
 			)
 		);
@@ -35,7 +40,9 @@ class PendenciasController extends AppController {
 		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
 
 		$this->Pendencia->recursive = 0;
+                $bairros = $this->Pendencia->Pessoa->Bairro->find('list');
 		$this->set('pendencias', $this->paginate());
+                $this->set('bairros', $bairros);
 	}
 /**
  * fechar method
