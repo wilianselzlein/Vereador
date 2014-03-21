@@ -148,7 +148,7 @@ App::uses('Debugger', 'Utility');
 	    <?php 
 		$anivs = ClassRegistry::init('Pessoa')->find('all', array('conditions' => array('EXTRACT(month FROM Pessoa.nascimento) ' => date('m')), 'order' => 'EXTRACT(DAY FROM Pessoa.nascimento)')); 
 		foreach ($anivs as $pessoa) { ?>
-		    <li><?php echo __(date('d', strtotime($pessoa['Pessoa']['nascimento'])) . ' '); echo $this->Html->link($pessoa['Pessoa']['nome'], array('controller' => 'pessoas', 'action' => 'view', $pessoa['Pessoa']['id'])); ?></li>
+		    <li><?php echo __(date('d', strtotime($pessoa['Pessoa']['nascimento'])) . ' '); echo $this->Html->link($pessoa['Pessoa']['nome'], array('controller' => 'pessoas', 'action' => 'view', $pessoa['Pessoa']['id'])); echo ' '; echo __($pessoa['Pessoa']['fone'] . ' ' . $pessoa['Pessoa']['celular']); ?></li>
 	    <?php } ?>
 	</ul>
 </div>
