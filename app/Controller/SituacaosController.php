@@ -28,11 +28,8 @@ class SituacaosController extends AppController {
 		if (!$this->Situacao->exists($id)) {
 			throw new NotFoundException(__('Situacao invalida.'));
 		}
-		$options = array('conditions' => array('Situacao.' . $this->Situacao->primaryKey => $id));
+		$options = array('conditions' => array('Situacao.' . $this->Situacao->primaryKey => $id), 'recursive' => 3);
 		$this->set('situacao', $this->Situacao->find('first', $options));
-		$this->set('user', $this->Situacao->Pendencia->User->find('list'));
-		$this->set('grupo', $this->Situacao->Pendencia->Grupo->find('list'));
-		$this->set('pessoa', $this->Situacao->Pendencia->Pessoa->find('list'));
 	}
 
 /**

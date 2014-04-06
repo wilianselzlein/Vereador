@@ -53,11 +53,8 @@ class PessoasController extends AppController {
 		if (!$this->Pessoa->exists($id)) {
 			throw new NotFoundException(__('Pessoa invalida.'));
 		}
-		$options = array('conditions' => array('Pessoa.' . $this->Pessoa->primaryKey => $id));
+		$options = array('conditions' => array('Pessoa.' . $this->Pessoa->primaryKey => $id), 'recursive' => 3);
 		$this->set('pessoa', $this->Pessoa->find('first', $options));
-		$this->set('user', $this->Pessoa->Pendencia->User->find('list'));
-		$this->set('grupo', $this->Pessoa->Pendencia->Grupo->find('list'));
-		$this->set('situacao', $this->Pessoa->Pendencia->Situacao->find('list'));
 	}
 
 /**

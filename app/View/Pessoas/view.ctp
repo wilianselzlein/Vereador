@@ -116,8 +116,6 @@
 		<th><?php echo __('Grupo'); ?></th>
 		<th><?php echo __('Título'); ?></th>
 		<th><?php echo __('Histórico'); ?></th>
-		<th><?php echo __('Cadastrado'); ?></th>
-		<th><?php echo __('Alterado'); ?></th>
 		<th class="actions"><?php echo __('Menu'); ?></th>
 	</tr>
 	<?php
@@ -126,13 +124,11 @@
 		<tr>
 			<td><?php echo $pendencia['id']; ?></td>
 			<td><?php echo date("d/m/y", strtotime($pendencia['data'])); ?></td>
-			<td><?php echo $this->Html->link($user[$pendencia['user_id']], array('controller' => 'users', 'action' => 'view', $pendencia['user_id'])); ?>
-			<td><?php echo $this->Html->link($situacao[$pendencia['situacao_id']], array('controller' => 'situacaos', 'action' => 'view', $pendencia['situacao_id'])); ?>
-			<td><?php echo $this->Html->link($grupo[$pendencia['grupo_id']], array('controller' => 'grupos', 'action' => 'view', $pendencia['grupo_id'])); ?>
+			<td><?php echo $this->Html->link($pendencia['User']['username'], array('controller' => 'users', 'action' => 'view', $pendencia['user_id'])); ?>
+			<td><?php echo $this->Html->link($pendencia['Situacao']['nome'], array('controller' => 'situacaos', 'action' => 'view', $pendencia['situacao_id'])); ?>
+			<td><?php echo $this->Html->link($pendencia['Grupo']['nome'], array('controller' => 'grupos', 'action' => 'view', $pendencia['grupo_id'])); ?>
 			<td><?php echo $pendencia['titulo']; ?></td>
 			<td><?php echo $pendencia['historico']; ?></td>
-			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['modified'])); ?></td>
-			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['created'])); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'pendencias', 'action' => 'view', $pendencia['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'pendencias', 'action' => 'edit', $pendencia['id'])); ?>

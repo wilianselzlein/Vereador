@@ -49,11 +49,8 @@ class UsersController extends AppController {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Usuario invalido.'));
 		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id), 'recursive' => 3);
 		$this->set('user', $this->User->find('first', $options));
-		$this->set('situacao', $this->User->Pendencia->Situacao->find('list'));
-		$this->set('grupo', $this->User->Pendencia->Grupo->find('list'));
-		$this->set('pessoa', $this->User->Pendencia->Pessoa->find('list'));
 	}
 
 /**

@@ -46,9 +46,8 @@ class BairrosController extends AppController {
 		if (!$this->Bairro->exists($id)) {
 			throw new NotFoundException(__('Bairro invalido'));
 		}
-		$options = array('conditions' => array('Bairro.' . $this->Bairro->primaryKey => $id));
+		$options = array('conditions' => array('Bairro.' . $this->Bairro->primaryKey => $id), 'recursive' => 2);
 		$this->set('bairro', $this->Bairro->find('first', $options));
-		$this->set('cidade', $this->Bairro->Cidade->find('list'));
 		$this->set('pendencias', $this->Bairro->Pessoa->Pendencia->find('all', array('conditions' => array('Pessoa.bairro_id' => $id))));
 	}
 

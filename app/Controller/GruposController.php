@@ -28,11 +28,8 @@ class GruposController extends AppController {
 		if (!$this->Grupo->exists($id)) {
 			throw new NotFoundException(__('Grupo invalido.'));
 		}
-		$options = array('conditions' => array('Grupo.' . $this->Grupo->primaryKey => $id));
+		$options = array('conditions' => array('Grupo.' . $this->Grupo->primaryKey => $id), 'recursive' => 3);
 		$this->set('grupo', $this->Grupo->find('first', $options));
-		$this->set('situacao', $this->Grupo->Pendencia->Situacao->find('list'));
-		$this->set('user', $this->Grupo->Pendencia->User->find('list'));
-		$this->set('pessoa', $this->Grupo->Pendencia->Pessoa->find('list'));
 	}
 
 /**

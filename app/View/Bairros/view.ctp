@@ -64,7 +64,7 @@
 			<td><?php echo date("d/m/y", strtotime($pessoa['nascimento'])); ?></td>
 			<td><?php echo $pessoa['endereco']; ?></td>
 			<td><?php echo $pessoa['numero']; ?></td>
-			<td><?php echo $this->Html->link($cidade[$pessoa['cidade_id']], array('controller' => 'cidades', 'action' => 'view', $pessoa['cidade_id'])); ?>
+			<td><?php echo $this->Html->link($pessoa['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $pessoa['cidade_id'])); ?>
 			<td><?php echo $pessoa['cep']; ?></td>
 			<td><?php echo $pessoa['fone']; ?></td>
 			<td><?php echo $pessoa['email']; ?></td>
@@ -106,8 +106,6 @@
 		<th><?php echo __('Grupo'); ?></th>
 		<th><?php echo __('Título'); ?></th>
 		<th><?php echo __('Histórico'); ?></th>
-		<th><?php echo __('Cadastrado'); ?></th>
-		<th><?php echo __('Alterado'); ?></th>
 		<th class="actions"><?php echo __('Menu'); ?></th>
 	</tr>
 	<?php
@@ -122,8 +120,6 @@
 			<td><?php echo $this->Html->link($pendencia['Grupo']['nome'], array('controller' => 'grupos', 'action' => 'view', $pendencia['Pendencia']['grupo_id'])); ?>
 			<td><?php echo $pendencia['Pendencia']['titulo']; ?></td>
 			<td><?php echo $pendencia['Pendencia']['historico']; ?></td>
-			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['modified'])); ?></td>
-			<td><?php echo date("d/m/y H:i:s", strtotime($pendencia['Pendencia']['created'])); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'pendencias', 'action' => 'view', $pendencia['Pendencia']['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'pendencias', 'action' => 'edit', $pendencia['Pendencia']['id'])); ?>
