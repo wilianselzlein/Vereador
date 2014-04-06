@@ -12,7 +12,7 @@ class BairrosController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function index() { //$todos = false
 		$this->Filter->addFilters(
 			array('filter1' => array('OR' => array(
 						'Bairro.id' => array('operator' => 'LIKE'),
@@ -27,7 +27,8 @@ class BairrosController extends AppController {
 			)		
 		);
 		$this->Filter->setPaginate('order', 'Bairro.nome ASC'); // optional
-		$this->Filter->setPaginate('limit', 10); // optional
+//		if (! $todos)
+//		    $this->Filter->setPaginate('limit', 10);
 		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
 		
 		$this->Bairro->recursive = 0;

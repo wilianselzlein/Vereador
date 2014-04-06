@@ -31,6 +31,12 @@
 			<?php echo $this->Html->link($pendencia['Pessoa']['nome'], array('controller' => 'pessoas', 'action' => 'view', $pendencia['Pessoa']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Telefone/Celular'); ?></dt>
+		<dd>
+			<?php echo h($pendencia['Pessoa']['fone']); ?>
+			&nbsp;
+			<?php echo h($pendencia['Pessoa']['celular']); ?>
+		</dd>
 		<dt><?php echo __('Título'); ?></dt>
 		<dd>
 			<?php echo h($pendencia['Pendencia']['titulo']); ?>

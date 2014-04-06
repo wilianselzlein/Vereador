@@ -25,7 +25,7 @@ class CidadesController extends AppController {
  */
 	public function index() {
 		$this->Cidade->recursive = 0;
-		$this->set('cidades', $this->paginate());
+		$this->set('cidades', $this->paginate(array(), array('limit' => $this->Cidade->find('count'))));
 	}
 
 /**

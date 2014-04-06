@@ -14,7 +14,7 @@ class SituacaosController extends AppController {
  */
 	public function index() {
 		$this->Situacao->recursive = 0;
-		$this->set('situacaos', $this->paginate());
+		$this->set('situacaos', $this->paginate(array(), array('limit' => $this->Situacao->find('count'))));
 	}
 
 /**

@@ -10,8 +10,8 @@
 			<th>&nbsp;</th>
 			<th><?php echo $this->Paginator->sort('grupo_id', 'Grupo'); ?></th>
 			<th><?php echo $this->Paginator->sort('pessoa_id', 'Pessoa'); ?></th>
-                        <th><?php echo $this->Paginator->sort('endereco', 'Endereço'); ?></th>
-                        <th><?php echo $this->Paginator->sort('fone', 'Telefone'); ?></th>
+			<th><?php echo $this->Paginator->sort('endereco', 'Endereço'); ?></th>
+			<th><?php echo $this->Paginator->sort('fone', 'Telefone'); ?></th>
 			<th><?php echo $this->Paginator->sort('titulo', 'Título'); ?></th>
 			<th><?php echo $this->Paginator->sort('historico', 'Hitórico'); ?></th>
 			<th class="actions"><?php echo __('Menu'); ?></th>

@@ -14,7 +14,7 @@ class GruposController extends AppController {
  */
 	public function index() {
 		$this->Grupo->recursive = 0;
-		$this->set('grupos', $this->paginate());
+		$this->set('grupos', $this->paginate(array(), array('limit' => $this->Grupo->find('count'))));
 	}
 
 /**

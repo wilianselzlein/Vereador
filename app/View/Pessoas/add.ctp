@@ -12,7 +12,7 @@
 		echo $this->Form->input('numero', array('label' => 'Número'));
 		echo $this->Form->input('bairro_id', array('label' => 'Bairro', 'style' => 'width:100%'));
 		echo $this->Form->input('cidade_id', array('label' => 'Cidade'));
-		echo $this->Form->input('cep', array('label' => 'CEP'));
+		echo $this->Form->input('cep', array('label' => 'CEP (deixar em branco para puxar da cidade)'));
 		echo $this->Form->input('fone', array('label' => 'Fone'));
 		echo $this->Form->input('email', array('label' => 'Email'));
 		echo $this->Form->input('celular', array('label' => 'Celular'));

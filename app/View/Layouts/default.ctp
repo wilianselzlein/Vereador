@@ -17,7 +17,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'Sistema gerenciador de Pendências');
+$cakeDescription = __d('cake_dev', 'Sistema Gerenciador de Gabinete');
 ?>
 <!DOCTYPE html>
 <html>

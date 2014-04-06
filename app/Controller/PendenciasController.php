@@ -29,6 +29,12 @@ class PendenciasController extends AppController {
 					)
 				),
 				'filter4' => array(
+				    'Pendencia.data' => array(
+					'operator' => 'between',
+				        'between' => array( 'text' => __(' e ', true), 'date' => true)
+					)
+				),
+				'filter5' => array(
 					'Pendencia.situacao_id' => array(
 						'select' => $this->Filter->select('Situacaos:', $this->Pendencia->Situacao->find('list'))
 					)
@@ -36,7 +42,7 @@ class PendenciasController extends AppController {
 			)
 		);
 		$this->Filter->setPaginate('order', 'Pendencia.id ASC'); // optional
-		$this->Filter->setPaginate('limit', 10); // optional
+		//$this->Filter->setPaginate('limit', 10); // optional
 		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
 
 		$this->Pendencia->recursive = 0;

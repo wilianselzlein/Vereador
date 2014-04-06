@@ -79,12 +79,46 @@
 				<?php echo $this->Form->postLink(__('Deletar'), array('controller' => 'pendencias', 'action' => 'delete', $pendencia['id']), null, __('Deseja excluir# %s?', $pendencia['id'])); ?>
 			</td>
 		</tr>
-	<?php endforeach; ?>
+		<?php endforeach; ?>
 	</table>
-<?php endif; ?>
+	<?php endif; ?>
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('Nova Pendência'), array('controller' => 'pendencias', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3><?php echo __('Tarefas do Usuário'); ?></h3>
+	<?php if (!empty($user['Tarefa'])): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Data'); ?></th>
+		<th><?php echo __('Descrição'); ?></th>
+		<th class="actions"><?php echo __('Menu'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($user['Tarefa'] as $tarefa): ?>
+		<tr>
+			<td><?php echo $tarefa['id']; ?></td>
+			<td><?php echo date("d/m/y G:i", strtotime($tarefa['data'])); ?></td>
+			<td><?php echo $tarefa['descricao']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('Ver'), array('controller' => 'agendas', 'action' => 'view', $tarefa['id'])); ?>
+				<?php echo $this->Html->link(__('Editar'), array('controller' => 'agendas', 'action' => 'edit', $tarefa['id'])); ?>
+				<?php echo $this->Form->postLink(__('Deletar'), array('controller' => 'agendas', 'action' => 'delete', $tarefa['id']), null, __('Deseja excluir# %s?', $tarefa['id'])); ?>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</table>
+	<?php endif; ?>
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('Nova Tarefa'), array('controller' => 'agendas', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>
