@@ -66,5 +66,6 @@
 		<li><?php echo $this->Html->link(__('Listar Cidades'), array('controller' => 'cidades', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Bairros'), array('controller' => 'bairros', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
+                <li><?php echo $this->Html->link(__('Gerar Etiquetas'), array('controller' => 'etiquetas', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

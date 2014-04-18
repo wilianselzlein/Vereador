@@ -36,7 +36,12 @@ class PendenciasController extends AppController {
 				),
 				'filter5' => array(
 					'Pendencia.situacao_id' => array(
-						'select' => $this->Filter->select('Situacaos:', $this->Pendencia->Situacao->find('list'))
+						'select' => $this->Filter->select('Situações:', $this->Pendencia->Situacao->find('list'))
+					)
+				),
+				'filter6' => array(
+					'Pessoa.cidade_id' => array(
+						'select' => $this->Filter->select('Cidades:', $this->Pendencia->Pessoa->Cidade->find('list'))
 					)
 				)
 			)
