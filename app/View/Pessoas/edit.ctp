@@ -14,6 +14,7 @@
 		echo $this->Form->input('fone', array('label' => 'Fone'));
 		echo $this->Form->input('email', array('label' => 'Email'));
 		echo $this->Form->input('celular', array('label' => 'Celular'));
+                echo $this->Form->input('lider_id', array('label' => 'Líder', 'style' => 'width:100%'));
 		echo $this->Form->input('documento', array('label' => 'Documento'));
 		echo $this->Form->input('titulo', array('label' => 'Título'));
 		echo $this->Form->input('zona', array('label' => 'Zona'));

@@ -32,6 +32,7 @@ App::uses('Debugger', 'Utility');
 	<ul>
 		<li><?php echo $this->Html->link(__('Pendências'), array('controller' => 'pendencias', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Pessoas'), array('controller' => 'pessoas', 'action' => 'index')); ?> </li>
+                <li><?php echo $this->Html->link(__('Líders'), array('controller' => 'liders', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Agenda'), array('controller' => 'agendas', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Grupos'), array('controller' => 'grupos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Situações'), array('controller' => 'situacaos', 'action' => 'index')); ?> </li>

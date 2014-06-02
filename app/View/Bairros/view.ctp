@@ -94,7 +94,7 @@
 	<br>
 	<br>
 	<h3><?php echo __('Pendências Relacionadas'); ?></h3>
-	
+	<?php include dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'filtros2.php'; ?>
 	<?php if (!empty($pendencias)): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>

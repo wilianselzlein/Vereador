@@ -88,6 +88,13 @@ class Pessoa extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Lider' => array(
+			'className' => 'Lider',
+			'foreignKey' => 'lider_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'Bairro' => array(
 			'className' => 'Bairro',
 			'foreignKey' => 'bairro_id',

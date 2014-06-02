@@ -30,6 +30,7 @@ class BairrosController extends AppController {
 //		if (! $todos)
 //		    $this->Filter->setPaginate('limit', 10);
 		$this->Filter->setPaginate('conditions', $this->Filter->getConditions());
+               
 		
 		$this->Bairro->recursive = 0;
 		$this->set('bairros', $this->paginate());
@@ -47,8 +48,27 @@ class BairrosController extends AppController {
 			throw new NotFoundException(__('Bairro invalido'));
 		}
 		$options = array('conditions' => array('Bairro.' . $this->Bairro->primaryKey => $id), 'recursive' => 2);
-		$this->set('bairro', $this->Bairro->find('first', $options));
-		$this->set('pendencias', $this->Bairro->Pessoa->Pendencia->find('all', array('conditions' => array('Pessoa.bairro_id' => $id))));
+		$this->set('bairro', $this->Bairro->find('first', $options));              
+		
+                
+                $this->Filter->addFilters(
+			array('filter1' => array('OR' => array(
+						'Pessoa.nome' => array('operator' => 'LIKE'),
+                                                'Grupo.nome' => array('operator' => 'LIKE'),
+                                                'Pendencia.titulo' => array('operator' => 'LIKE'),
+                                                'Pendencia.historico' => array('operator' => 'LIKE'),
+                                                'Pendencia.data' => array('operator' => 'LIKE'),
+						'User.username' => array('operator' => 'LIKE')
+					)
+				),
+				'filter2' => array(
+					'Pendencia.situacao_id' => array(
+						'select' => $this->Filter->select('Situação:', $this->Bairro->Pessoa->Pendencia->Situacao->find('list'))
+					)
+				)	
+			)		
+		);
+		$this->set('pendencias', $this->Bairro->Pessoa->Pendencia->find('all', array('conditions' => array('Pessoa.bairro_id' => $id), 'conditions' => $this->Filter->getConditions())));
 	}
 
 /**

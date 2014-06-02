@@ -12,11 +12,11 @@ class EtiquetasController extends AppController {
 	
 	public function viewPdf() {
 		$this->Layout = 'pdf';
-                $filtro = "%". $_POST['data']['filtro'] . "%";
-                $model = new Pessoa();
-		                                        
+		$filtro = "%". $_POST['data']['filtro'] . "%";
+		$model = new Pessoa();
+		          
 		$this->set('pessoa', (
-                        $model->find('all', array('recursive' => 0, 'conditions' => array("OR" => 
+                        $model->find('all', array('recursive' => 0, 'order' => 'Pessoa.nome', 'conditions' => array("OR" => 
                             array(
                                     "Pessoa.nome LIKE" => $filtro,
                                     "Pessoa.endereco LIKE" => $filtro,
@@ -34,12 +34,13 @@ class EtiquetasController extends AppController {
                             )
                         )
                 ))));
-
 		$this->render();
-		$this->redirect("/Etiquetas/Etiqueta/");
+		$this->redirect("Etiqueta/");
 	}
 
 	public function Etiqueta() {
+            
+		$this->Layout = 'pdf';
 		$this->viewClass = 'Media';
 		$params = array( 
 			'id' => 'Etiqueta.pdf',
